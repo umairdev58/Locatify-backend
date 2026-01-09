@@ -5,6 +5,7 @@ const os = require('os');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 const addressRoutes = require('./routes/addressRoutes');
+const placeRoutes = require('./routes/placeRoutes');
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use(express.json({ limit: '2mb' }));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/address', addressRoutes);
+app.use('/api/place', placeRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'Locator MVP backend is live' });
